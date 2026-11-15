@@ -1,0 +1,182 @@
+{
+  "validation": {
+    "Seasonal naive (last same weekday)": {
+      "MAE": 9.225722627737227,
+      "RMSE": 12.211764699677602,
+      "sMAPE": 18.91963810022675,
+      "WAPE": 16.859331233882465,
+      "Bias": 1.3837226277372263,
+      "R2": 0.82946536164386
+    },
+    "Seasonal naive (same weekday, 28 days earlier)": {
+      "MAE": 10.099569343065694,
+      "RMSE": 13.382757999711124,
+      "sMAPE": 20.422886779740697,
+      "WAPE": 18.45622199418665,
+      "Bias": 1.5577153284671532,
+      "R2": 0.7951919612460991
+    },
+    "Moving average (28 days)": {
+      "MAE": 9.815692909280502,
+      "RMSE": 13.004900533326735,
+      "sMAPE": 19.21069854328207,
+      "WAPE": 17.937458638751615,
+      "Bias": 1.6744796663190826,
+      "R2": 0.80659405514253
+    },
+    "Random Forest": {
+      "MAE": 6.081483025160369,
+      "RMSE": 7.91979904440574,
+      "sMAPE": 12.851751853536388,
+      "WAPE": 11.113464045207207,
+      "Bias": 0.4705442676755359,
+      "R2": 0.9282727676732297
+    },
+    "LightGBM": {
+      "MAE": 5.803049930959667,
+      "RMSE": 7.530274418296953,
+      "sMAPE": 12.361714793508206,
+      "WAPE": 10.604647993498554,
+      "Bias": 0.21185378586323542,
+      "R2": 0.9351548714561554
+    },
+    "_interval_80": {
+      "coverage": 0.7994087591240876,
+      "avg_width": 18.75817205296403
+    }
+  },
+  "test": {
+    "Seasonal naive (last same weekday)": {
+      "MAE": 9.735818181818182,
+      "RMSE": 12.789233255857337,
+      "sMAPE": 17.515885528747173,
+      "WAPE": 15.436042026668979,
+      "Bias": -0.6011709090909091,
+      "R2": 0.8460619555526111
+    },
+    "Seasonal naive (same weekday, 28 days earlier)": {
+      "MAE": 10.769701818181819,
+      "RMSE": 14.165301524243219,
+      "sMAPE": 19.02612143607447,
+      "WAPE": 17.07525415692407,
+      "Bias": 0.8951563636363636,
+      "R2": 0.8111536499389964
+    },
+    "Moving average (28 days)": {
+      "MAE": 10.56657922077922,
+      "RMSE": 13.899216441923747,
+      "sMAPE": 17.972438857799876,
+      "WAPE": 16.75320531711232,
+      "Bias": 0.6116877922077919,
+      "R2": 0.8181817035054684
+    },
+    "Random Forest": {
+      "MAE": 6.496405960810881,
+      "RMSE": 8.439192211016575,
+      "sMAPE": 11.803565058013685,
+      "WAPE": 10.299986458318635,
+      "Bias": 0.5495489026571911,
+      "R2": 0.9329716227074978
+    },
+    "LightGBM": {
+      "MAE": 6.198140706438498,
+      "RMSE": 8.025586128032892,
+      "sMAPE": 11.350233509331568,
+      "WAPE": 9.82708989065416,
+      "Bias": 0.22511060800047042,
+      "R2": 0.9393807626476831
+    },
+    "_interval_80": {
+      "coverage": 0.8000436363636364,
+      "avg_width": 20.004975641799373
+    }
+  },
+  "tuning": [
+    {
+      "target": "raw",
+      "objective": "regression",
+      "num_leaves": 63,
+      "best_iteration": 522,
+      "val_MAE": 5.9067976335978924,
+      "seconds": 44.05521845817566
+    },
+    {
+      "target": "raw",
+      "objective": "regression_l1",
+      "num_leaves": 63,
+      "best_iteration": 927,
+      "val_MAE": 5.912474834282804,
+      "seconds": 80.48116159439087
+    },
+    {
+      "target": "ratio",
+      "objective": "regression_l1",
+      "num_leaves": 63,
+      "best_iteration": 101,
+      "val_MAE": 5.803049930959667,
+      "seconds": 33.47929120063782
+    },
+    {
+      "target": "ratio",
+      "objective": "regression_l1",
+      "num_leaves": 127,
+      "best_iteration": 98,
+      "val_MAE": 5.811990581175459,
+      "seconds": 37.08154559135437
+    }
+  ],
+  "chosen": {
+    "target": "ratio",
+    "objective": "regression_l1",
+    "num_leaves": 63,
+    "best_iteration_on_validation": 101,
+    "rounds_train_plus_val": 116,
+    "rounds_all_history": 121
+  },
+  "timing": {
+    "LightGBM": {
+      "train_seconds": 33.47929120063782
+    },
+    "Random Forest": {
+      "train_seconds": 65.66641521453857
+    }
+  },
+  "splits": {
+    "train": [
+      "2013-04-30",
+      "2016-06-30"
+    ],
+    "validation": [
+      "2016-07-01",
+      "2017-03-31"
+    ],
+    "test": [
+      "2017-04-01",
+      "2017-12-31"
+    ],
+    "rows": {
+      "train": 579000,
+      "validation": 137000,
+      "test": 137500
+    }
+  },
+  "environment": {
+    "python": "3.12.3",
+    "lightgbm": "4.7.0",
+    "scikit-learn": "1.9.1",
+    "statsmodels": "0.15.0",
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "cpu_count": 1,
+    "seed": 42,
+    "horizon_days": 28,
+    "rf_params": {
+      "n_estimators": 60,
+      "max_depth": 14,
+      "min_samples_leaf": 30,
+      "max_features": 0.5,
+      "max_samples": 0.25
+    },
+    "total_pipeline_seconds": 601.9172132015228
+  }
+}

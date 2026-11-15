@@ -1,0 +1,57 @@
+{
+  "raw_profile": {
+    "rows": 913000,
+    "columns": [
+      "date",
+      "store",
+      "item",
+      "sales"
+    ],
+    "dtypes": {
+      "date": "datetime64[us]",
+      "store": "int64",
+      "item": "int64",
+      "sales": "int64"
+    },
+    "missing_values": {
+      "date": 0,
+      "store": 0,
+      "item": 0,
+      "sales": 0
+    },
+    "exact_duplicates": 0,
+    "repeated_keys": 0,
+    "stores": 10,
+    "items": 50,
+    "series": 500,
+    "date_min": "2013-01-01",
+    "date_max": "2017-12-31",
+    "calendar_days": 1826,
+    "missing_calendar_dates": 0,
+    "series_with_incomplete_history": 0,
+    "negative_sales": 0,
+    "zero_share": 1.095290251916758e-06,
+    "skew": 0.8671122960235801,
+    "summary": {
+      "count": 913000.0,
+      "mean": 52.250286966046005,
+      "std": 28.801143603517097,
+      "min": 0.0,
+      "25%": 30.0,
+      "50%": 47.0,
+      "75%": 70.0,
+      "max": 231.0
+    }
+  },
+  "cleaning_log": {
+    "exact_duplicates_removed": 0,
+    "repeated_keys_found": 0,
+    "negative_sales_set_missing": 0,
+    "records_added_by_calendar_reindex": 0,
+    "missing_after_imputation": 0,
+    "outliers_flagged": 1175,
+    "outlier_share": 0.0012869660460021906,
+    "outliers_on_holidays_share": 0.07659574468085106,
+    "outliers_removed": 0
+  }
+}
